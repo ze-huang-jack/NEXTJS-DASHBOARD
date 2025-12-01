@@ -5,7 +5,7 @@ const sql = postgres(process.env.POSTGRES_URL!, {
   prepare: false
 });
 
-async function listInvoices() {
+export async function listInvoices() {
   const data = await sql`
     SELECT invoices.amount, customers.name
     FROM invoices
