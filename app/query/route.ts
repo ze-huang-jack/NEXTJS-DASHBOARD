@@ -16,5 +16,13 @@ export async function listInvoices() {
   return data;
 }
 
-
+export async function GET() {
+  try {
+    const data = await listInvoices();
+    return Response.json(data);
+  } catch (e) {
+    console.error(e);
+    return new Response('Query error', { status: 500 });
+  }
+}
 
